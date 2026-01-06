@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 
-const API = "http://localhost:5000";
+// USE YOUR RENDER BACKEND URL HERE
+const API = "https://library-backend-7g2y.onrender.com";
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -22,7 +23,9 @@ function App() {
     setBooks(res.data);
   };
 
-  useEffect(() => { fetchBooks(); }, []);
+  useEffect(() => { 
+    fetchBooks(); 
+  }, []);
 
   const addBook = async () => {
     await axios.post(`${API}/books`, {
